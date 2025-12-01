@@ -1,7 +1,10 @@
+import Footer from "@/components/Footer";
+import Navbar from "@/components/Navbar";
+
 export default function AboutUs() {
   return (
     <div className="min-h-screen bg-white text-black">
-      
+      <Navbar/>
       <section className="max-w-6xl mx-auto px-4 py-12">
         <div className="bg-gray-200 rounded-lg h-96 flex items-center justify-center mb-8">
           <span className="text-4xl text-gray-500">Image</span>
@@ -222,6 +225,7 @@ export default function AboutUs() {
         
         </div>
       </section>
+      <Footer/>
     </div>
   );
 };
