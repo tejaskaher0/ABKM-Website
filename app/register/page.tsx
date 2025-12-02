@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import { useRouter } from 'next/navigation';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
@@ -8,6 +8,7 @@ import Footer from '@/components/Footer';
 export default function RegisterPage() {
   const router = useRouter();
   const [step, setStep] = useState(1);
+  const canSubmitRef = useRef(false);
   const [formData, setFormData] = useState({
     // Personal
     fullName: '',
@@ -45,20 +46,34 @@ export default function RegisterPage() {
   };
 
   const handleNext = () => {
-   
+    console.log('handleNext called, current step:', step);
     setStep((prev) => Math.min(prev + 1, 4));
   };
 
   const handlePrev = () => {
+    console.log('handlePrev called, current step:', step);
     setStep((prev) => Math.max(prev - 1, 1));
   };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    console.log('handleSubmit called, canSubmit:', canSubmitRef.current, 'step:', step);
+    
+    // Only submit if explicitly allowed via the Complete Registration button
+    if (!canSubmitRef.current) {
+      console.log('canSubmitRef is false, returning early');
+      return;
+    }
      
     console.log('Form Submitted:', formData);
-    
+    canSubmitRef.current = false; // Reset the flag
     router.push('/dashboard');
+  };
+
+  const handleCompleteRegistration = () => {
+    console.log('Complete Registration clicked');
+    canSubmitRef.current = true;
+    // The form will submit naturally after this
   };
 
   const steps = [
@@ -112,7 +127,15 @@ export default function RegisterPage() {
                 {step === 4 && 'Payment & Plan'}
               </h2>
 
-              <form onSubmit={handleSubmit}>
+              <form 
+                onSubmit={handleSubmit}
+                onKeyDown={(e) => {
+                  // Prevent Enter key from submitting form on steps 1-3
+                  if (e.key === 'Enter' && step !== 4) {
+                    e.preventDefault();
+                  }
+                }}
+              >
                  
                 {step === 1 && (
                   <div className="space-y-6">
@@ -441,6 +464,7 @@ export default function RegisterPage() {
                   ) : (
                     <button
                       type="submit"
+                      onClick={handleCompleteRegistration}
                       className="px-6 py-2 bg-green-600 text-white rounded-md font-medium hover:bg-green-700 transition-colors"
                     >
                       Complete Registration
