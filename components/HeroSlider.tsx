@@ -28,7 +28,7 @@ export default function HeroSlider() {
   useEffect(() => {
     const interval = setInterval(() => {
       nextSlide();
-    }, 5000); // slide every 5 seconds
+    }, 5000); 
 
     return () => clearInterval(interval);
   }, [nextSlide]);
