@@ -59,7 +59,7 @@ export default function RegisterPage() {
     e.preventDefault();
     console.log('handleSubmit called, canSubmit:', canSubmitRef.current, 'step:', step);
     
-    // Only submit if explicitly allowed via the Complete Registration button
+     
     if (!canSubmitRef.current) {
       console.log('canSubmitRef is false, returning early');
       return;
@@ -73,7 +73,7 @@ export default function RegisterPage() {
   const handleCompleteRegistration = () => {
     console.log('Complete Registration clicked');
     canSubmitRef.current = true;
-    // The form will submit naturally after this
+     
   };
 
   const steps = [
@@ -130,7 +130,7 @@ export default function RegisterPage() {
               <form 
                 onSubmit={handleSubmit}
                 onKeyDown={(e) => {
-                  // Prevent Enter key from submitting form on steps 1-3
+                 
                   if (e.key === 'Enter' && step !== 4) {
                     e.preventDefault();
                   }
