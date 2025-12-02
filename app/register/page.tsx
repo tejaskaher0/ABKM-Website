@@ -9,7 +9,7 @@ export default function RegisterPage() {
   const router = useRouter();
   const [step, setStep] = useState(1);
   const [formData, setFormData] = useState({
-    // Step 1: Personal
+    // Personal
     fullName: '',
     gender: '',
     dob: '',
@@ -17,7 +17,7 @@ export default function RegisterPage() {
     height: '',
     complexion: '',
     maritalStatus: '',
-    // Step 2: Family
+    //  Family
     fatherName: '',
     motherName: '',
     brothers: '',
@@ -25,13 +25,13 @@ export default function RegisterPage() {
     kul: '',
     gotra: '',
     nativePlace: '',
-    // Step 3: Contact
+    //  Contact
     phone: '',
     altPhone: '',
     email: '',
     address: '',
     houseOwnership: '',
-    // Step 4: Payment
+    //  Payment
     plan: 'basic',
     cardName: '',
     cardNumber: '',
@@ -45,7 +45,7 @@ export default function RegisterPage() {
   };
 
   const handleNext = () => {
-    // Basic validation could go here
+   
     setStep((prev) => Math.min(prev + 1, 4));
   };
 
@@ -55,9 +55,9 @@ export default function RegisterPage() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Simulate API call
+     
     console.log('Form Submitted:', formData);
-    // Redirect to dashboard
+    
     router.push('/dashboard');
   };
 
@@ -75,7 +75,7 @@ export default function RegisterPage() {
       <main className="flex-grow py-12 px-4 sm:px-6 lg:px-8">
         <div className="max-w-3xl mx-auto">
           
-          {/* Stepper */}
+        
           <div className="mb-12">
             <div className="flex items-center justify-between relative">
               <div className="absolute left-0 top-1/2 transform -translate-y-1/2 w-full h-1 bg-gray-200 -z-10"></div>
@@ -102,7 +102,7 @@ export default function RegisterPage() {
             </div>
           </div>
 
-          {/* Form Card */}
+         
           <div className="bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden">
             <div className="p-6 md:p-8">
               <h2 className="text-2xl font-bold text-gray-900 mb-6">
@@ -113,7 +113,7 @@ export default function RegisterPage() {
               </h2>
 
               <form onSubmit={handleSubmit}>
-                {/* Step 1: Personal Details */}
+                 
                 {step === 1 && (
                   <div className="space-y-6">
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -205,7 +205,7 @@ export default function RegisterPage() {
                   </div>
                 )}
 
-                {/* Step 2: Family Details */}
+                 
                 {step === 2 && (
                   <div className="space-y-6">
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -283,7 +283,7 @@ export default function RegisterPage() {
                   </div>
                 )}
 
-                {/* Step 3: Contact Details */}
+               
                 {step === 3 && (
                   <div className="space-y-6">
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -344,8 +344,7 @@ export default function RegisterPage() {
                     </div>
                   </div>
                 )}
-
-                {/* Step 4: Payment */}
+ 
                 {step === 4 && (
                   <div className="space-y-6">
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
@@ -417,8 +416,7 @@ export default function RegisterPage() {
                     </div>
                   </div>
                 )}
-
-                {/* Navigation Buttons */}
+ 
                 <div className="mt-8 flex justify-between">
                   {step > 1 ? (
                     <button

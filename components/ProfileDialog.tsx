@@ -5,7 +5,7 @@ import { useEffect, useRef } from 'react';
 interface ProfileDialogProps {
   isOpen: boolean;
   onClose: () => void;
-  profile: any; // Using any for simplicity as per requirements, but could be typed
+  profile: any;  
 }
 
 export default function ProfileDialog({ isOpen, onClose, profile }: ProfileDialogProps) {
@@ -40,7 +40,7 @@ export default function ProfileDialog({ isOpen, onClose, profile }: ProfileDialo
         ref={dialogRef}
         className="relative bg-white rounded-xl shadow-2xl w-full max-w-4xl max-h-[90vh] overflow-y-auto flex flex-col animate-in fade-in zoom-in-95 duration-200"
       >
-        {/* Header with Close Button */}
+         
         <div className="sticky top-0 bg-white border-b border-gray-100 px-6 py-4 flex items-center justify-between z-10">
           <h2 className="text-xl font-bold text-gray-900">Profile Details</h2>
           <button 
@@ -55,7 +55,7 @@ export default function ProfileDialog({ isOpen, onClose, profile }: ProfileDialo
 
         <div className="p-6 md:p-8">
           <div className="flex flex-col md:flex-row gap-8">
-            {/* Left: Image & Basic Info */}
+            
             <div className="w-full md:w-1/3 flex flex-col items-center text-center">
               <div className="w-48 h-48 rounded-full overflow-hidden bg-gray-200 mb-4 border-4 border-gray-50 shadow-md">
                  {/* Placeholder Image */}
@@ -78,7 +78,7 @@ export default function ProfileDialog({ isOpen, onClose, profile }: ProfileDialo
               </div>
             </div>
 
-            {/* Right: Detailed Info */}
+            
             <div className="w-full md:w-2/3">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-4">
                 <DetailRow label="Name" value={profile.name} />

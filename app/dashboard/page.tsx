@@ -28,9 +28,9 @@ export default function DashboardPage() {
     occupation: 'Any',
   });
 
-  // Filter Logic (Simple client-side)
+  // Filter Logic  
   const filteredProfiles = MOCK_PROFILES.filter((profile) => {
-    // Basic filtering example
+    
     if (filters.seeking !== 'Any' && profile.gender !== filters.seeking) return false;
     if (profile.age < parseInt(filters.ageFrom) || profile.age > parseInt(filters.ageTo)) return false;
     if (filters.caste !== 'Any' && profile.caste !== filters.caste) return false;
@@ -47,7 +47,7 @@ export default function DashboardPage() {
     <div className="min-h-screen bg-gray-50 font-sans text-gray-900">
       <Navbar />
 
-      {/* Header Banner */}
+      
       <div className="bg-gray-900 text-white py-12 px-4 sm:px-6 lg:px-8 text-center relative overflow-hidden">
         <div className="absolute inset-0 bg-black/50 z-0"></div>
         <div className="relative z-10 max-w-4xl mx-auto">
@@ -58,14 +58,13 @@ export default function DashboardPage() {
 
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="flex flex-col lg:flex-row gap-8">
-          
-          {/* Sidebar Filters */}
+         
           <aside className="w-full lg:w-1/4">
             <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-6 sticky top-24">
               <h2 className="text-lg font-bold text-gray-900 mb-4 border-b pb-2">Filters</h2>
               
               <div className="space-y-6">
-                {/* Seeking */}
+               
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">I'm looking for</label>
                   <select
@@ -79,7 +78,7 @@ export default function DashboardPage() {
                   </select>
                 </div>
 
-                {/* Age Range */}
+                 
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">Age</label>
                   <div className="flex items-center space-x-2">
@@ -103,7 +102,7 @@ export default function DashboardPage() {
                   </div>
                 </div>
 
-                {/* Caste */}
+                 
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">Caste</label>
                   <select
@@ -120,7 +119,7 @@ export default function DashboardPage() {
                   </select>
                 </div>
 
-                {/* Occupation */}
+                
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">Occupation</label>
                   <select
@@ -144,8 +143,7 @@ export default function DashboardPage() {
               </div>
             </div>
           </aside>
-
-          {/* Profile Grid */}
+ 
           <div className="w-full lg:w-3/4">
             <div className="mb-4 flex justify-between items-center">
               <h2 className="text-xl font-bold text-gray-900">
